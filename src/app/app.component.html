@@ -1,4 +1,4 @@
-<main class="p-8">
+<main class="p-8 ">
   <div>PLAYERS</div>
   <div class="flex flex-row gap-8 p-8 h-130">
     <div class="basis-1/2 relative">
@@ -136,54 +136,242 @@
     </div>
   </div>
 
-  <div>JUDGES</div>
+  <div class="relative min-h-80">
+    <div>JUDGES</div>
+
+        <button class="
+          absolute top-[-6px] right-16
+          text-xl text-gray-100  
+          bg-gradient-to-r from-purple-500 to-pink-500
+          hover:from-blue-500 hover:to-cyan-500 transition-colors
+          rounded-md px-2 py-1 cursor-pointer
+          "
+          (click)=(reveal())
+          >REVEAL</button>
+
 
       <div class="flex flex-row p-8">
         <div class="basis-1/3">
           <div class="text-xl mb-4">{{judge_1[0]}}</div>
-          <div [class.hidden]="!REVEALED">
-            <p class="mb-4">-- {{judge_1[1]}}</p>
-            <p class="mb-4">-- {{judge_1[2]}}</p>
-            <p class="mb-4">-- {{judge_1[3]}}</p>
+          <div class="relative" [class.hidden]="!REVEALED">
+            <div class="mb-4">
+              <span>-- {{judge_1[1]}}</span>
+              <div class="text-xs">
+                <span class="ml-4 mr-2">DIMA: </span>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(dima_add_points(1))
+                >+</button>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(dima_add_points(-1))
+                >-</button>
+                <span class="ml-4 mr-2">MAJA: </span>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(maja_add_points(1))
+                >+</button>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(maja_add_points(-1))
+                >-</button>
+              </div>
+            </div>
+            <div class="mb-4">
+              <span>-- {{judge_1[2]}}</span>
+              <div class="text-xs">
+                <span class="ml-4 mr-2">DIMA: </span>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(dima_add_points(2))
+                >+</button>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(dima_add_points(-2))
+                >-</button>
+                <span class="ml-4 mr-2">MAJA: </span>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(maja_add_points(2))
+                >+</button>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(maja_add_points(-2))
+                >-</button>
+              </div>
+            </div>
+            <div class="mb-4">
+              <span>-- {{judge_1[3]}}</span>
+              <div class="text-xs">
+                <span class="ml-4 mr-2">DIMA: </span>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(dima_add_points(3))
+                >+</button>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(dima_add_points(-3))
+                >-</button>
+                <span class="ml-4 mr-2">MAJA: </span>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(maja_add_points(3))
+                >+</button>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(maja_add_points(-3))
+                >-</button>
+              </div>
+            </div>
           </div>
         </div>
         <div class="basis-1/3">
           <div class="text-xl mb-4">{{judge_2[0]}}</div>
           <div [class.hidden]="!REVEALED">
-            <p class="mb-4">-- {{judge_2[1]}}</p>
-            <p class="mb-4">-- {{judge_2[2]}}</p>
-            <p class="mb-4">-- {{judge_2[3]}}</p>
+            <div class="mb-4">
+              <span>-- {{judge_2[1]}}</span>
+              <div class="text-xs">
+                <span class="ml-4 mr-2">DIMA: </span>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(dima_add_points(1))
+                >+</button>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(dima_add_points(-1))
+                >-</button>
+                <span class="ml-4 mr-2">MAJA: </span>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(maja_add_points(1))
+                >+</button>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(maja_add_points(-1))
+                >-</button>
+              </div>
+            </div>
+            <div class="mb-4">
+              <span>-- {{judge_2[2]}}</span>
+              <div class="text-xs">
+                <span class="ml-4 mr-2">DIMA: </span>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(dima_add_points(2))
+                >+</button>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(dima_add_points(-2))
+                >-</button>
+                <span class="ml-4 mr-2">MAJA: </span>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(maja_add_points(2))
+                >+</button>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(maja_add_points(-2))
+                >-</button>
+              </div>
+            </div>
+            <div class="mb-4">
+              <span>-- {{judge_2[3]}}</span>
+              <div class="text-xs">
+                <span class="ml-4 mr-2">DIMA: </span>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(dima_add_points(3))
+                >+</button>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(dima_add_points(-3))
+                >-</button>
+                <span class="ml-4 mr-2">MAJA: </span>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(maja_add_points(3))
+                >+</button>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(maja_add_points(-3))
+                >-</button>
+              </div>
+            </div>
           </div>
         </div>
         <div class="basis-1/3">
           <div class="text-xl mb-4 ">{{judge_3[0]}}</div>
           <div [class.hidden]="!REVEALED">
-            <p class="mb-4">-- {{judge_3[1]}}</p>
-            <p class="mb-4">-- {{judge_3[2]}}</p>
-            <p class="mb-4">-- {{judge_3[3]}}</p>
+            <div class="mb-4">
+              <span>-- {{judge_3[1]}}</span>
+              <div class="text-xs">
+                <span class="ml-4 mr-2">DIMA: </span>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(dima_add_points(1))
+                >+</button>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(dima_add_points(-1))
+                >-</button>
+                <span class="ml-4 mr-2">MAJA: </span>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(maja_add_points(1))
+                >+</button>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(maja_add_points(-1))
+                >-</button>
+              </div>
+            </div>
+            <div class="mb-4">
+              <span>-- {{judge_3[2]}}</span>
+              <div class="text-xs">
+                <span class="ml-4 mr-2">DIMA: </span>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(dima_add_points(2))
+                >+</button>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(dima_add_points(-2))
+                >-</button>
+                <span class="ml-4 mr-2">MAJA: </span>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(maja_add_points(2))
+                >+</button>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(maja_add_points(-2))
+                >-</button>
+              </div>
+            </div>
+            <div class="mb-4">
+              <span>-- {{judge_3[3]}}</span>
+              <div class="text-xs">
+                <span class="ml-4 mr-2">DIMA: </span>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(dima_add_points(3))
+                >+</button>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(dima_add_points(-3))
+                >-</button>
+                <span class="ml-4 mr-2">MAJA: </span>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(maja_add_points(3))
+                >+</button>
+                <button class="text-sm border rounded-md px-2 mr-2"
+                (click)=(maja_add_points(-3))
+                >-</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+  </div>
 
-      <button class="
-        absolute bottom-4 left-8
-        text-xl text-gray-100  
-        bg-gradient-to-r from-purple-500 to-pink-500
-        hover:from-blue-500 hover:to-cyan-500 transition-colors
-        rounded-md px-2 py-1 cursor-pointer
-        "
-        (click)=(reveal())
-        >REVEAL</button>
+  <div class=" px-8 h-14 w-full">
+    <div class="flex flex-row">
+      <div class="basis-1/3">
+        <span class="text-3xl mr-4">ROUND: {{round}}</span>
+        <button class="
+          text-3xl text-gray-100 mr-16
+          bg-gradient-to-r from-purple-500 to-pink-500
+          hover:from-blue-500 hover:to-cyan-500 transition-colors
+          rounded-md px-2 py-1 cursor-pointer
+          "
+          (click)=(new_round())>NEXT ROUND
+        </button>
+      </div>
 
-      <button class="
-        absolute bottom-4 right-8
-        text-3xl text-gray-100  
-        bg-gradient-to-r from-purple-500 to-pink-500
-        hover:from-blue-500 hover:to-cyan-500 transition-colors
-        rounded-md px-2 py-1 cursor-pointer
-        "
-        (click)=(new_round())
-        >NEW_ROUND</button>
+      <div class="basis-1/3 text-center text-3xl">
+        <span class="mr-16">DIMA: {{dima_points}}</span>
+        <span>MAJA: {{maja_points}}</span>
+      </div>
+
+      <div class="basis-1/3 text-right">
+        <button class="
+          text-3xl text-gray-100  
+          bg-gradient-to-r from-purple-500 to-pink-500
+          hover:from-blue-500 hover:to-cyan-500 transition-colors
+          rounded-md px-2 py-1 cursor-pointer
+          "
+          (click)=(new_game())>NEW GAME
+        </button>
+      </div>
+
+    </div>
+  </div>
 </main>
 
 

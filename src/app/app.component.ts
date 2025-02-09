@@ -13,6 +13,10 @@ export class AppComponent {
   BASE_COUNTER = 5;
   TIMER = 0;
   REVEALED = false;
+  round = 0;
+
+  dima_points = 0;
+  maja_points = 0;
 
   dima_counter = this.BASE_COUNTER;
   maja_counter = this.BASE_COUNTER;
@@ -153,6 +157,11 @@ export class AppComponent {
 
   accept_dima() {
     this.TIMER = this.dima_time!;
+    this.dima_points = this.dima_points + this.count_bonus_dima();
+  }
+
+  dima_add_points(points:number) {
+    this.dima_points = this.dima_points + points;
   }
 
   generate_maja() {
@@ -187,10 +196,15 @@ export class AppComponent {
 
   accept_maja() {
     this.TIMER = this.maja_time!;
+    this.maja_points = this.maja_points + this.count_bonus_maja();
   }
 
+  maja_add_points(points:number) {
+    this.maja_points = this.maja_points + points;
+  }
 
   new_round() {
+    this.round = this.round + 1;
     this.dima_counter = this.BASE_COUNTER;
     this.maja_counter = this.BASE_COUNTER;
 
@@ -201,6 +215,14 @@ export class AppComponent {
     this.judge_1 = this.random_picker(this.JUDGES);
     this.judge_2 = this.random_picker(this.JUDGES);
     this.judge_3 = this.random_picker(this.JUDGES);
+  }
+
+  new_game() {
+    this.round = 0;
+    this.dima_points = 0;
+    this.maja_points = 0;
+
+    this.new_round();
   }
 
   random_picker(source: any[]) {

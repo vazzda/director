@@ -13,6 +13,7 @@ export class AppComponent {
   BASE_COUNTER = 5;
   TIMER = 0;
   REVEALED = false;
+  SUPER_BONUS = 10;
   round = 0;
 
   dima_points = 0;
@@ -39,6 +40,9 @@ export class AppComponent {
   dima_time_bonus = undefined;
   maja_time_bonus = undefined;
 
+  dima_super_bonus = 0;
+  maja_super_bonus = 0;
+
   judge_1 = [];
   judge_2 = [];
   judge_3 = [];
@@ -58,6 +62,16 @@ export class AppComponent {
     'PENETRATING',
     'TWISTING',
     'GROPING',
+    'BITING',
+    'GROPING',
+    'CARESSING',
+    'SQUEEZING',
+    'MASTURBATING',
+    'TYING',
+    'TORTURING',
+    'GRINDING',
+    'SPANKING',
+    'MASSAGING',
   ];
   ZONES = [
     'LIPS',
@@ -76,6 +90,10 @@ export class AppComponent {
     'HAIR',
     'NECK',
     'BACK',
+    'TOES',
+    'EARS',
+    'RIB CAGE',
+    'BELLY BUTTON',
   ];
   MODES = [
     ['NONE', 0],
@@ -86,6 +104,36 @@ export class AppComponent {
     ['TOYS: DILDO', 1],
     ['TOYS: VIBRATOR', 1],
     ['RESTRAINED', 1],
+    ['KNIFE', 1],
+    ['CONDOM', 1],
+    ['LIPSTICK', 1],
+    ['WRITING', 1],
+    ['DARK', 1],
+    ['CONSTRUCTION TOOL', 1],
+    ['CANDLE', 2],
+    ['CHOKING', 1],
+    ['TOYS: NIPPLE CLAMPS', 1],
+    ['TOYS: MOUTH GAG', 1],
+    ['TOYS: PADDLE/FLOGGER/CANE/CROP/WHIP', 1],
+    ['TOYS: COCK RING', 1],
+    ['TOYS: BUTT PLUG', 1],
+    ['COLLAR', 1],
+    ['LINGERIE', 1],
+    ['STOCKINGS', 1],
+    ['HARNESS', 1],
+    ['LATEX/LEATHER/PVC', 1],
+    ['HIGH HILLS', 1],
+    ['BED', 1],
+    ['KITCHEN UTENSILS', 1],
+    ['FOOD', 1],
+    ['EARPHONES W MUSIC/VOICE ON (SOUND DEPRIVATION)', 1],
+    ['HOOD', 1],
+    ['BELT', 1],
+    ['CHAIR', 1],
+    ['GLOVES', 1],
+    ['BODY WRITING', 1],
+    ['ICE CUBES', 1],
+    ['WAX', 1],
   ];
   TIME = [
     [120, 4],
@@ -100,21 +148,19 @@ export class AppComponent {
 
   JUDGES = [
     ["Ama", "Do i see any traces of a cat?", "Do i see a cat?", "Is cat paying attention to a them? Or to the camera?"],
-    ["Horny granny", "Is there a dick on a pictre?", "Is it errected?", "Is it played with?"],
+    ["Horny granny", "Is there a dick on a picture?", "Is the dick errected?", "Is it played with?"],
     ["Fetisher", "Is there a toy on a pictre?", "Mb even two of them?", "Is the toy in action?"],
     ["Roundlover", "Are there boobs on a picture?", "Are them naked", "Anybody toching them?"],
-    ["Cuturier", "Anybody wearing cloths?", "Both of them?", "One completelly naked and other is full clothed?"],
+    ["Cuturier", "Anybody wearing cloths?", "Both of them wearing cloth?", "One completelly naked and other is full clothed?"],
     ["Lucifer", "Any bdsm toys?", "Any restrains?", "Any signs of pain on a skin or a face?"],
-    ["Photographer", "Do i see faces?", "And no legs, like portrait?", "Any eye contact with camera?"],
-    ["Serbian guy", "Do i see faces?", "And no legs, like portrait?", "Any eye contact with camera?"],
-    ["Secerna papica", "Do i see faces?", "And no legs, like portrait?", "Any eye contact with camera?"],
-    ["Sugardaddy", "Do i see faces?", "And no legs, like portrait?", "Any eye contact with camera?"],
-    ["Degrader", "Do i see faces?", "And no legs, like portrait?", "Any eye contact with camera?"],
-    ["Spider-man", "Do i see faces?", "And no legs, like portrait?", "Any eye contact with camera?"],
-    ["Business woman", "Do i see faces?", "And no legs, like portrait?", "Any eye contact with camera?"],
-    ["French girl", "Do i see faces?", "And no legs, like portrait?", "Any eye contact with camera?"],
-    ["German nazi princess", "Do i see faces?", "And no legs, like portrait?", "Any eye contact with camera?"],
-    ["Italian bold prick", "Do i see faces?", "And no legs, like portrait?", "Any eye contact with camera?"],
+    ["Photographer", "Do i see faces?", "Like portrait, with face and torso only?", "Any eye contact with camera?"],
+    ["Alien", "Do i see at least one genitals?", "Mb two of them?", "Mb three? Replicas like dildo counted!"],
+    ["VOYEUR NEIGHBOR", "Are they close enough to the windows?", "Are they having sex?", "Are they naked!"],
+    ["DUNGEON MASTER/MONITOR", " Is their play SSC (safe, sane, consensual)?", "Are they following the rules?", "Did they use any equipment?"],
+    ["DEVIANT", "Is the picture non-vanilla?", "Is anyone restrained?", "Are they using more toys at once?"],
+    ["PRINCESS", "Is at least one person dressed?", " Is someone being served?", "Is there a damsel in distress?"],
+    ["BIG BROTHER", "Is everyone visible in the picture?", " Is everyone involved?", "Will this increase the ratings?"],
+    ["KITTEN", "Is there any milk in the picture?", "Is anyone cuddling in the picture?", "Is anyone standing/walking on all fours/knees?"],
   ];
 
   ngOnInit() {
@@ -144,6 +190,13 @@ export class AppComponent {
     this.dima_time_bonus = time[1];
   }
 
+  dima_super_roll() {
+    this.generate_dima();
+    this.dima_counter = 0;
+    this.dima_super_bonus = this.SUPER_BONUS;
+
+  }
+
   count_bonus_dima() {
     let total = this.dima_counter;
     if (this.dima_time_bonus) {
@@ -151,6 +204,9 @@ export class AppComponent {
     }
     if (this.dima_mode_bonus) {
       total = total + this.dima_mode_bonus;
+    }
+    if (this.dima_super_bonus) {
+      total = total + this.dima_super_bonus;
     }
     return total;
   }
@@ -183,6 +239,13 @@ export class AppComponent {
     this.maja_time_bonus = time[1];
   }
 
+  maja_super_roll() {
+    this.generate_maja();
+    this.maja_counter = 0;
+    this.maja_super_bonus = this.SUPER_BONUS;
+
+  }
+
   count_bonus_maja() {
     let total = this.maja_counter;
     if (this.maja_time_bonus) {
@@ -190,6 +253,9 @@ export class AppComponent {
     }
     if (this.maja_mode_bonus) {
       total = total + this.maja_mode_bonus;
+    }
+    if (this.maja_super_bonus) {
+      total = total + this.maja_super_bonus;
     }
     return total;
   }
@@ -210,6 +276,9 @@ export class AppComponent {
 
     this.dima_action = undefined;
     this.maja_action = undefined;
+
+    this.dima_super_bonus = 0;
+    this.maja_super_bonus = 0;
 
     this.REVEALED = false;
     this.judge_1 = this.random_picker(this.JUDGES);

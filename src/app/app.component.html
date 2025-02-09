@@ -1,6 +1,6 @@
-<main class="p-8 ">
+<main class="px-8 pt-4">
   <div>PLAYERS</div>
-  <div class="flex flex-row gap-8 p-8 h-130">
+  <div class="flex flex-row gap-8 p-8 h-130 rounded-md border mb-8">
     <div class="basis-1/2 relative">
       <!-- DIMA -->
       <div class="text-3xl text-bold underline">Dima </div>
@@ -15,6 +15,16 @@
           (click)=(accept_dima())
           [class.hidden]="!dima_action"
           >ACCEPT</button>
+        <button class=" 
+          mr-4
+          text-xl text-gray-100  
+          bg-gradient-to-r from-yellow-500 to-pink-500
+          hover:from-blue-500 hover:to-cyan-500 transition-colors
+          rounded-md px-2 py-1 cursor-pointer
+          "
+          (click)=(dima_super_roll())
+          [class.hidden]="dima_action"
+          >SUPER ROLL</button>
         <button class=" 
           mr-4
           text-xl text-gray-100  
@@ -85,6 +95,16 @@
         <button class=" 
           mr-4
           text-xl text-gray-100  
+          bg-gradient-to-r from-yellow-500 to-pink-500
+          hover:from-blue-500 hover:to-cyan-500 transition-colors
+          rounded-md px-2 py-1 cursor-pointer
+          "
+          (click)=(maja_super_roll())
+          [class.hidden]="maja_action"
+          >SUPER ROLL</button>
+        <button class=" 
+          mr-4
+          text-xl text-gray-100  
           bg-gradient-to-r from-purple-500 to-pink-500
           hover:from-blue-500 hover:to-cyan-500 transition-colors
           rounded-md px-2 py-1 cursor-pointer
@@ -136,14 +156,14 @@
     </div>
   </div>
 
-  <div class="relative min-h-80">
-    <div>JUDGES</div>
+  <div class="relative min-h-80 rounded-md border mb-8">
+    <div class="ml-4 mt-2">JUDGES</div>
 
         <button class="
           absolute top-[-6px] right-16
           text-xl text-gray-100  
-          bg-gradient-to-r from-purple-500 to-pink-500
-          hover:from-blue-500 hover:to-cyan-500 transition-colors
+          bg-gradient-to-r from-rose-500 to-purple-500
+          hover:from-purple-500 hover:to-rose-500 transition-colors
           rounded-md px-2 py-1 cursor-pointer
           "
           (click)=(reveal())
@@ -346,7 +366,7 @@
         <span class="text-3xl mr-4">ROUND: {{round}}</span>
         <button class="
           text-3xl text-gray-100 mr-16
-          bg-gradient-to-r from-purple-500 to-pink-500
+          bg-gradient-to-r from-slate-500 to-slate-500
           hover:from-blue-500 hover:to-cyan-500 transition-colors
           rounded-md px-2 py-1 cursor-pointer
           "
@@ -362,7 +382,7 @@
       <div class="basis-1/3 text-right">
         <button class="
           text-3xl text-gray-100  
-          bg-gradient-to-r from-purple-500 to-pink-500
+          bg-gradient-to-r from-red-500 to-red-500
           hover:from-blue-500 hover:to-cyan-500 transition-colors
           rounded-md px-2 py-1 cursor-pointer
           "

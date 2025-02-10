@@ -1,87 +1,90 @@
 <main class="px-8 pt-4">
   <div>PLAYERS</div>
-  <div class="flex flex-row gap-8 p-8 h-130 rounded-md border mb-8">
-    <div class="basis-1/2 relative">
+  <div class="flex flex-row gap-8 mb-8">
+    <div class="basis-1/2 ">
       <!-- DIMA -->
-      <div class="text-3xl text-bold underline">Dima </div>
-      <div class="absolute top-0 right-12">
-        <button class=" 
-          mr-4
-          text-xl text-gray-100  
-          bg-gradient-to-r from-purple-500 to-pink-500
-          hover:from-blue-500 hover:to-cyan-500 transition-colors
-          rounded-md px-2 py-1 cursor-pointer
-          "
-          (click)=(accept_dima())
-          [class.hidden]="!dima_action"
-          >ACCEPT</button>
-        <button class=" 
-          mr-4
-          text-xl text-gray-100  
-          bg-gradient-to-r from-yellow-500 to-pink-500
-          hover:from-blue-500 hover:to-cyan-500 transition-colors
-          rounded-md px-2 py-1 cursor-pointer
-          "
-          (click)=(dima_super_roll())
-          [class.hidden]="dima_action"
-          >SUPER ROLL</button>
-        <button class=" 
-          mr-4
-          text-xl text-gray-100  
-          bg-gradient-to-r from-purple-500 to-pink-500
-          hover:from-blue-500 hover:to-cyan-500 transition-colors
-          rounded-md px-2 py-1 cursor-pointer
-          "
-          (click)=(generate_dima())
-          [class.hidden]="!dima_counter"
-          >ROLL</button>
-          <span>{{dima_counter}}</span> left
-      </div>
+      <div class="border h-100 p-4 m-0 rounded-md relative">
+        <div class="text-3xl text-bold underline">Dima </div>
+        <div class="absolute top-4 right-8">
+          <button class=" 
+            mr-4
+            text-xl text-gray-100  
+            bg-gradient-to-r from-purple-500 to-pink-500
+            hover:from-blue-500 hover:to-cyan-500 transition-colors
+            rounded-md px-2 py-1 cursor-pointer
+            "
+            (click)=(accept_dima())
+            [class.hidden]="!dima_action"
+            >ACCEPT</button>
+          <button class=" 
+            mr-4
+            text-xl text-gray-100  
+            bg-gradient-to-r from-yellow-500 to-pink-500
+            hover:from-blue-500 hover:to-cyan-500 transition-colors
+            rounded-md px-2 py-1 cursor-pointer
+            "
+            (click)=(dima_super_roll())
+            [class.hidden]="dima_action"
+            >SUPER ROLL</button>
+          <button class=" 
+            mr-4
+            text-xl text-gray-100  
+            bg-gradient-to-r from-purple-500 to-pink-500
+            hover:from-blue-500 hover:to-cyan-500 transition-colors
+            rounded-md px-2 py-1 cursor-pointer
+            "
+            (click)=(generate_dima())
+            [class.hidden]="!dima_counter"
+            >ROLL</button>
+            <span>{{dima_counter}}</span> left
+        </div>
 
-      <div
-        class="pt-12 text-left text-xs font-bold text-gray-300"
-        [class.hidden]="!dima_action"
-        >
-        <div class="row flex flex-row h-24">
-          <div class="basis-1/2">ACTION
-            <p class="text-black text-3xl font-bold">{{dima_action}}</p>
+        <div
+          class="pt-8 text-left text-xs font-bold text-gray-300"
+          [class.hidden]="!dima_action"
+          >
+          <div class="row flex flex-row h-20">
+            <div class="basis-1/2">ACTION
+              <p class="text-black text-3xl font-bold">{{dima_action}}</p>
+            </div>
+            <div class="basis-1/2">FOCUS
+              <p class="text-black text-3xl font-bold">{{dima_zone}}</p>
+            </div>
           </div>
-          <div class="basis-1/2">FOCUS
-            <p class="text-black text-3xl font-bold">{{dima_zone}}</p>
+          <div class="row flex flex-row h-18">
+            <div class="basis-1/2">MODE
+              <p class="text-black text-2xl font-bold">{{dima_mode}}</p>
+            </div>
+            <div class="basis-1/2">BONUS
+              <p class="text-black text-2xl font-bold">{{dima_mode_bonus}}</p>
+            </div>
           </div>
-        </div>
-        <div class="row flex flex-row h-24">
-          <div class="basis-1/2">MODE
-            <p class="text-black text-3xl font-bold">{{dima_mode}}</p>
+          <div class="row flex flex-row h-18">
+            <div class="basis-1/2">TIME
+              <p class="text-black text-2xl font-bold">{{dima_time}}</p>
+            </div>
+            <div class="basis-1/2">BONUS
+              <p class="text-black text-2xl font-bold">{{dima_time_bonus}}</p>
+            </div>
           </div>
-          <div class="basis-1/2">BONUS
-            <p class="text-black text-3xl font-bold">{{dima_mode_bonus}}</p>
-          </div>
-        </div>
-        <div class="row flex flex-row h-24">
-          <div class="basis-1/2">TIME
-            <p class="text-black text-3xl font-bold">{{dima_time}}</p>
-          </div>
-          <div class="basis-1/2">BONUS
-            <p class="text-black text-3xl font-bold">{{dima_time_bonus}}</p>
-          </div>
-        </div>
-        <div class="row flex flex-row h-24">
-          <div class="basis-1/2">ROLL BONUS
-            <p class="text-black text-3xl font-bold">{{dima_counter}}</p>
-          </div>
-          <div class="basis-1/2">TOTAL BONUS
-            <p class="text-black text-3xl font-bold">{{count_bonus_dima()}}</p>
+          <div class="row flex flex-row h-18">
+            <div class="basis-1/2">ROLL BONUS
+              <p class="text-black text-2xl font-bold">{{dima_counter}}</p>
+            </div>
+            <div class="basis-1/2">TOTAL BONUS
+              <p class="text-black text-2xl font-bold">{{count_bonus_dima()}}</p>
+            </div>
           </div>
         </div>
       </div>
       <!-- END OF DIMA -->
     </div>
 
-    <div class="basis-1/2 relative">
+    <div class="basis-1/2 ">
       <!-- MAJA -->
-      <div class="text-3xl text-bold underline">Maja </div>
-      <div class="absolute top-0 right-12">
+      <div class="border h-100 p-4 m-0 rounded-md relative">
+        <div class="text-3xl text-bold underline">Maja </div>
+        <div class="absolute top-4 right-8">
         <button class=" 
           mr-4
           text-xl text-gray-100  
@@ -116,10 +119,10 @@
       </div>
 
       <div
-        class="pt-12 text-left text-xs font-bold text-gray-300"
+        class="pt-8 text-left text-xs font-bold text-gray-300"
         [class.hidden]="!maja_action"
         >
-        <div class="row flex flex-row h-24">
+        <div class="row flex flex-row h-20">
           <div class="basis-1/2">ACTION
             <p class="text-black text-3xl font-bold">{{maja_action}}</p>
           </div>
@@ -127,40 +130,41 @@
             <p class="text-black text-3xl font-bold">{{maja_zone}}</p>
           </div>
         </div>
-        <div class="row flex flex-row h-24">
+        <div class="row flex flex-row h-18">
           <div class="basis-1/2">MODE
-            <p class="text-black text-3xl font-bold">{{maja_mode}}</p>
+            <p class="text-black text-2xl font-bold">{{maja_mode}}</p>
           </div>
           <div class="basis-1/2">BONUS
-            <p class="text-black text-3xl font-bold">{{maja_mode_bonus}}</p>
+            <p class="text-black text-2xl font-bold">{{maja_mode_bonus}}</p>
           </div>
         </div>
-        <div class="row flex flex-row h-24">
+        <div class="row flex flex-row h-18">
           <div class="basis-1/2">TIME
-            <p class="text-black text-3xl font-bold">{{maja_time}}</p>
+            <p class="text-black text-2xl font-bold">{{maja_time}}</p>
           </div>
           <div class="basis-1/2">BONUS
-            <p class="text-black text-3xl font-bold">{{maja_time_bonus}}</p>
+            <p class="text-black text-2xl font-bold">{{maja_time_bonus}}</p>
           </div>
         </div>
-        <div class="row flex flex-row h-24">
+        <div class="row flex flex-row h-18">
           <div class="basis-1/2">ROLL BONUS
-            <p class="text-black text-3xl font-bold">{{maja_counter}}</p>
+            <p class="text-black text-2xl font-bold">{{maja_counter}}</p>
           </div>
           <div class="basis-1/2">TOTAL BONUS
-            <p class="text-black text-3xl font-bold">{{count_bonus_maja()}}</p>
+            <p class="text-black text-2xl font-bold">{{count_bonus_maja()}}</p>
           </div>
         </div>
+      </div>
       </div>
       <!-- END OF MAJA -->
     </div>
   </div>
 
+  <div class="mt-2">JUDGES</div>
   <div class="relative min-h-80 rounded-md border mb-8">
-    <div class="ml-4 mt-2">JUDGES</div>
 
         <button class="
-          absolute top-[-6px] right-16
+          absolute bottom-2 right-2
           text-xl text-gray-100  
           bg-gradient-to-r from-rose-500 to-purple-500
           hover:from-purple-500 hover:to-rose-500 transition-colors
@@ -170,7 +174,7 @@
           >REVEAL</button>
 
 
-      <div class="flex flex-row p-8">
+      <div class="flex flex-row px-8 py-4">
         <div class="basis-1/3">
           <div class="text-xl mb-4">{{judge_1[0]}}</div>
           <div class="relative" [class.hidden]="!REVEALED">
